@@ -1,26 +1,229 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-ink: #080b10;
+  --color-ink-800: #101721;
+  --color-ink-700: #1a2430;
+  --color-cream: #f4f1ea;
+  --color-flame: #f0561e;
+  --color-aqua: #17a8a0;
+  --color-volt: #cde800;
+  --color-grape: #7b4fe0;
+
+  --font-display: var(--font-archivo);
+  --font-sans: var(--font-inter);
+
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background: var(--color-ink);
+  }
+  body {
+    font-family: var(--font-sans), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+  ::selection {
+    background: var(--color-flame);
+    color: #fff;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-volt);
+    outline-offset: 3px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* Heavy condensed display type — the brand's voice */
+  .display {
+    font-family: var(--font-display), system-ui, sans-serif;
+    font-weight: 900;
+    font-stretch: 112%;
+    letter-spacing: -0.03em;
+    line-height: 0.88;
+    text-transform: uppercase;
+  }
+  .eyebrow {
+    font-family: var(--font-display), sans-serif;
+    font-weight: 700;
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  /* Photos are placeholders — this wash keeps ANY source dark and on-brand,
+     so a bright stand-in never blows out the card. */
+  .duotone {
+    filter: grayscale(1) contrast(1.25) brightness(0.5);
+    mix-blend-mode: luminosity;
+  }
+}
+
+/* Scroll reveal, zero JS. Unsupported browsers just show content. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
+  }
+}
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee 32s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* Horizontal snap rails on mobile */
+.rail {
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+}
+.rail::-webkit-scrollbar {
+  display: none;
+}
+.rail > * {
+  scroll-snap-align: start;
+}
+
+/* ─── Motion layer ─────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Scroll progress bar. No JS — the timeline is the document scroll. */
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    animation: grow-x linear both;
+    animation-timeline: scroll(root block);
+  }
+}
+@keyframes grow-x {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* Hero photo drifts very slowly — stops the page feeling like a screenshot. */
+.ken-burns { animation: ken-burns 24s ease-in-out infinite alternate; }
+@keyframes ken-burns {
+  from { transform: scale(1) translate3d(0, 0, 0); }
+  to   { transform: scale(1.09) translate3d(-1.5%, -1.5%, 0); }
+}
+
+/* Hero headline: lines rise in sequence behind a clipping mask. */
+.line-mask { display: block; overflow: hidden; }
+.line-mask > span {
+  display: block;
+  animation: line-rise 0.9s var(--ease-out-quint) both;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes line-rise {
+  from { transform: translateY(102%) rotate(2deg); opacity: 0; }
+  to   { transform: none; opacity: 1; }
+}
+
+.fade-up {
+  animation: reveal-in 0.7s var(--ease-out-quint) both;
+  animation-delay: var(--d, 0ms);
+}
+
+/* Slow parallax drift for background blobs. */
+.drift  { animation: drift 14s ease-in-out infinite alternate; }
+.drift-2 { animation: drift 19s ease-in-out infinite alternate-reverse; }
+@keyframes drift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(6%, -8%, 0) scale(1.18); }
+}
+
+/* "Almost full" urgency pulse. */
+.pulse-ring::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  box-shadow: 0 0 0 0 currentColor;
+  animation: pulse-ring 2.4s ease-out infinite;
+}
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, currentColor 55%, transparent); }
+  70%  { box-shadow: 0 0 0 9px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+/* Icons draw themselves in when they scroll into view. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .draw path,
+    .draw circle,
+    .draw rect {
+      stroke-dasharray: 120;
+      animation: draw 1s var(--ease-out-quint) both;
+      animation-timeline: view();
+      animation-range: entry 10% entry 65%;
+    }
+  }
+}
+@keyframes draw {
+  from { stroke-dashoffset: 120; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* Underline that wipes in on hover. */
+.wipe-link {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  background-position: left 100%;
+  transition: background-size 0.4s var(--ease-out-quint);
+}
+.wipe-link:hover { background-size: 100% 2px; }
+
+/* Counters animate a registered custom property, then print it via counter(). */
+@property --num {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+.count-up {
+  counter-reset: n var(--num);
+  animation: count-up 2s var(--ease-out-quint) both;
+}
+.count-up::after { content: counter(n); }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .count-up { animation-timeline: view(); animation-range: entry 0% cover 30%; }
+  }
+}
+@keyframes count-up {
+  from { --num: 0; }
+  to   { --num: var(--to); }
 }

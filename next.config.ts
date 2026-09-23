@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    // Placeholder host only — drop this once real photos live in /public.
+    remotePatterns: [{ protocol: "https", hostname: "picsum.photos" }],
+  },
 };
 
 export default nextConfig;

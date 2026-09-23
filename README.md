@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Chawata — web
 
-## Getting Started
-
-First, run the development server:
+Next.js 16 (App Router) + Tailwind 4. Mobile-first: the phone layout is the
+real one, desktop is the adaptation.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev     # http://localhost:3000
+npm test        # pricing self-check
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Where things live
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| What | File |
+|---|---|
+| Sports, prices, season logic | `src/lib/sports.ts` |
+| This week's games | `src/lib/games.ts` |
+| Photos (placeholders) | `src/lib/photos.ts` |
+| Contact details, nav | `src/lib/site.ts` |
+| Brand colours, type, motion | `src/app/globals.css` |
+| Registration endpoint | `src/app/api/register/route.ts` |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Edit `games.ts` and redeploy to change the Play page. It moves to a database
+when hand-editing actually hurts.
 
-## Learn More
+## Placeholders to replace
 
-To learn more about Next.js, take a look at the following resources:
+- **Photos.** `src/lib/photos.ts` points at picsum.photos. Swap for real
+  Chawata game photos — that one file is the only change, and the `.duotone`
+  treatment keeps whatever you drop in looking on-brand. Then delete
+  `remotePatterns` from `next.config.ts`.
+- **Contact details.** `src/lib/site.ts` has placeholder WhatsApp/email/socials.
+- **Registrations aren't stored.** `/api/register` validates and logs. Wiring
+  Supabase + the Telegram bot is the next step.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Notes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Motion is CSS-only (scroll-driven animations, no JS observers) and fully
+  disabled under `prefers-reduced-motion`. Browsers without scroll timelines
+  just show static content.
+- The form recomputes the season total server-side — the browser's number is
+  never trusted.
