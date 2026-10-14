@@ -23,7 +23,7 @@ export default function HomePage() {
       <section className="relative flex min-h-[88svh] flex-col justify-end overflow-hidden lg:min-h-[92svh]">
         <Image
           src={photos.hero}
-          alt="Chawata players on court in Addis Ababa"
+          alt="Chewata players on court in Addis Ababa"
           fill
           priority
           sizes="100vw"
@@ -43,7 +43,7 @@ export default function HomePage() {
             {site.description}
           </p>
           <div className="fade-up mt-8 flex flex-col gap-3 sm:flex-row" style={{ "--d": "580ms" } as CSSProperties}>
-            <ButtonLink href="/join">Join Chawata</ButtonLink>
+            <ButtonLink href="/join">Join Chewata</ButtonLink>
             <ButtonLink href="/play" variant="outline">
               See this week&rsquo;s games
             </ButtonLink>

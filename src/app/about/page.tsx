@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
-  description: `Chawata is an organized social sports league built to get people out, moving, meeting new people and having fun in ${site.city}.`,
+  description: `Chewata is an organized social sports league built to get people out, moving, meeting new people and having fun in ${site.city}.`,
 };
 
 const pillars = [
@@ -25,12 +25,12 @@ export default function AboutPage() {
         <Image src={photos.aboutHero} alt="" fill priority sizes="100vw" className="duotone object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/75 to-ink/30" />
         <div className="relative mx-auto w-full max-w-7xl px-4 pb-14 pt-28 sm:px-6 lg:px-8 lg:pb-20">
-          <p className="eyebrow mb-5 text-volt">About Chawata</p>
+          <p className="eyebrow mb-5 text-volt">About Chewata</p>
           <h1 className="display max-w-2xl text-[3.25rem] text-cream sm:text-7xl lg:text-8xl">
             Life is better<br />when we <span className="text-volt">play.</span>
           </h1>
           <p className="mt-6 max-w-md text-base leading-relaxed text-cream/75">
-            Chawata is an organized social sports league built to get people out, moving, meeting new
+            Chewata is an organized social sports league built to get people out, moving, meeting new
             people and having fun.
           </p>
           <ButtonLink href="/play" variant="volt" className="mt-8">
@@ -43,7 +43,7 @@ export default function AboutPage() {
       <section className="bg-cream text-ink">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-20 lg:px-8 lg:py-28">
           <div className="reveal">
-            <p className="eyebrow text-ink/40">01 — Why Chawata exists</p>
+            <p className="eyebrow text-ink/40">01 — Why Chewata exists</p>
             <h2 className="display mt-4 text-4xl sm:text-5xl">
               We could all use<br />a little more <span className="text-flame">play.</span>
             </h2>
@@ -54,7 +54,7 @@ export default function AboutPage() {
                 surprisingly difficult.
               </p>
               <p>
-                Chawata creates an easy way to change that. Pick a sport, join a league and show up. We
+                Chewata creates an easy way to change that. Pick a sport, join a league and show up. We
                 take care of organizing the rest.
               </p>
             </div>
@@ -83,13 +83,13 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl border-t border-ink/10 px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
           <div className="grid gap-10 lg:grid-cols-2">
             <div className="reveal">
-              <p className="eyebrow text-ink/40">03 — What is Chawata?</p>
+              <p className="eyebrow text-ink/40">03 — What is Chewata?</p>
               <h2 className="display mt-4 text-3xl sm:text-4xl">
                 Sport is our game.<br />People are <span className="text-volt [text-shadow:0_0_1px_rgba(0,0,0,.5)]">our why.</span>
               </h2>
             </div>
             <p className="reveal max-w-md self-end text-[0.9375rem] leading-relaxed text-ink/70">
-              Chawata is a social sports league for kids and adults. You can sign up with friends or on
+              Chewata is a social sports league for kids and adults. You can sign up with friends or on
               your own. We place you in a team, organize the games and create a space where everyone can
               show up, compete, laugh and belong.
             </p>

@@ -14,7 +14,7 @@ export function Footer() {
             Belong.
           </h2>
           <div className="flex flex-col gap-3 sm:flex-row lg:shrink-0">
-            <ButtonLink href="/join">Join Chawata</ButtonLink>
+            <ButtonLink href="/join">Join Chewata</ButtonLink>
             <ButtonLink href="/contact" variant="outline">
               Corporate enquiries
             </ButtonLink>

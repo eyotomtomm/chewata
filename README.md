@@ -1,4 +1,4 @@
-# Chawata — web
+# Chewata — web
 
 Next.js 16 (App Router) + Tailwind 4. Mobile-first: the phone layout is the
 real one, desktop is the adaptation.
@@ -26,7 +26,7 @@ when hand-editing actually hurts.
 ## Placeholders to replace
 
 - **Photos.** `src/lib/photos.ts` points at picsum.photos. Swap for real
-  Chawata game photos — that one file is the only change, and the `.duotone`
+  Chewata game photos — that one file is the only change, and the `.duotone`
   treatment keeps whatever you drop in looking on-brand. Then delete
   `remotePatterns` from `next.config.ts`.
 - **Contact details.** `src/lib/site.ts` has placeholder WhatsApp/email/socials.

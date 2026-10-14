@@ -224,7 +224,7 @@ export function JoinForm() {
             ))}
           </div>
           <div>
-            <Label>How did you hear about Chawata?</Label>
+            <Label>How did you hear about Chewata?</Label>
             <Select name="heardFrom" defaultValue="">
               <option value="" disabled>Select an option</option>
               {HEARD.map((h) => <option key={h} value={h}>{h}</option>)}
@@ -251,7 +251,7 @@ export function JoinForm() {
             type="checkbox"
             checked={consent}
             onChange={() => setConsent((v) => !v)}
-            label="I agree to receive updates about Chawata leagues, news and events via WhatsApp and email."
+            label="I agree to receive updates about Chewata leagues, news and events via WhatsApp and email."
             sub="You can opt out anytime."
           />
         </div>

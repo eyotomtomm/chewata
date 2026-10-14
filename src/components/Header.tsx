@@ -23,7 +23,7 @@ export function Header() {
     <>
     <header className="sticky top-0 z-50 border-b border-cream/10 bg-ink/85 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:h-20 lg:px-8">
-        <Link href="/" aria-label="Chawata home">
+        <Link href="/" aria-label="Chewata home">
           <Logo />
         </Link>
 
@@ -47,7 +47,7 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <ButtonLink href="/join" arrow={false} className="hidden px-5 py-2.5 sm:inline-flex">
-            Join Chawata
+            Join Chewata
           </ButtonLink>
           <button
             onClick={() => setOpen((v) => !v)}
@@ -89,7 +89,7 @@ export function Header() {
           ))}
         </nav>
         <ButtonLink href="/join" className="mt-8 w-full">
-          Join Chawata
+          Join Chewata
         </ButtonLink>
         <ButtonLink href="/contact" variant="outline" className="mt-3 w-full">
           Corporate & team days

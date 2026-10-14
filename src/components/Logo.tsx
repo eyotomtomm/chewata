@@ -7,7 +7,7 @@ export function Logo({ className = "" }: { className?: string }) {
         <circle cx="20" cy="14" r="3" fill="var(--color-volt)" />
       </svg>
       <span className="leading-none">
-        <span className="display block text-[1.15rem] text-cream">Chawata</span>
+        <span className="display block text-[1.15rem] text-cream">Chewata</span>
         <span className="eyebrow block text-[0.5rem] text-cream/50">The Social Sports League</span>
       </span>
     </span>

@@ -1,4 +1,4 @@
-// PLACEHOLDERS. Swap these for real Chawata game photos — this is the only
+// PLACEHOLDERS. Swap these for real Chewata game photos — this is the only
 // file that needs to change. Keep the same keys.
 const ph = (seed: string, w = 1200, h = 900) =>
   `https://picsum.photos/seed/${seed}/${w}/${h}`;
