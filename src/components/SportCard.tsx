@@ -12,7 +12,7 @@ export function SportCard({ sport }: { sport: Sport }) {
 
   return (
     <Link
-      href={`/play#${sport.id}`}
+      href={`/join?sport=${sport.id}`}
       className={`group relative flex aspect-[4/5] w-[78vw] shrink-0 flex-col justify-end overflow-hidden rounded-2xl bg-ink-800 ring-1 ring-cream/10 transition-all duration-300 ease-out-quint hover:-translate-y-1 hover:shadow-2xl sm:aspect-[3/4] sm:w-auto ${a.ring} ${a.glow}`}
     >
       <Image

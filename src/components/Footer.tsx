@@ -25,7 +25,7 @@ export function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <Logo />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/50">
-              Organised social sport for adults and kids across {site.city}.
+              Organised social sport across {site.city}. Chewata Kids coming soon.
             </p>
           </div>
           <FooterCol title="Explore" links={nav.map((n) => ({ href: n.href, label: n.label }))} />

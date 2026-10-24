@@ -5,8 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/Button";
 import { SportIcon } from "@/components/Icons";
 import { accent } from "@/lib/accents";
-import { formatETB, seasonTotal, sports, type SportId } from "@/lib/sports";
-import { games } from "@/lib/games";
+import { formatETB, seasonTotal, sportById, sports, type SportId } from "@/lib/sports";
 import { Choice, Input, Label, Reveal, Section, Select } from "./FormBits";
 
 const DAYS = ["Weekday Evenings (Mon–Thu)", "Friday Evenings", "Saturday", "Sunday"];
@@ -18,8 +17,8 @@ const toggle = <T,>(list: T[], v: T) => (list.includes(v) ? list.filter((x) => x
 
 export function JoinForm() {
   const params = useSearchParams();
-  // Arriving from a "Join this game" button preselects that sport.
-  const preselect = games.find((g) => g.id === params.get("game"))?.sport;
+  // Arriving from a sport card preselects that sport.
+  const preselect = sportById(params.get("sport") ?? "")?.id;
 
   const [picked, setPicked] = useState<SportId[]>(preselect ? [preselect] : []);
   const [joinAs, setJoinAs] = useState("individual");
@@ -119,7 +118,7 @@ export function JoinForm() {
       </Section>
 
       <Section n={2} title="What would you like to play?" hint="You can select more than one.">
-        <div className="rail -mx-1 flex gap-3 overflow-x-auto px-1 pb-1 sm:grid sm:grid-cols-3 sm:overflow-visible lg:grid-cols-5">
+        <div className="rail -mx-1 flex gap-3 overflow-x-auto px-1 pb-1 sm:grid sm:grid-cols-3 sm:overflow-visible">
           {sports.map((s) => {
             const on = picked.includes(s.id);
             const a = accent[s.accent];
@@ -146,7 +145,6 @@ export function JoinForm() {
                 <Icon className={`h-9 w-9 transition-all duration-500 ease-out-quint ${on ? `${a.text} rotate-[360deg]` : "text-ink/45"}`} />
                 <span className={`text-sm font-semibold ${on ? a.text : "text-ink/80"}`}>{s.name}</span>
                 <span className="text-[0.6875rem] text-ink/45">{formatETB(s.price)} / season</span>
-                {!s.live && <span className="eyebrow text-[0.5625rem] text-ink/35">Coming soon</span>}
               </button>
             );
           })}

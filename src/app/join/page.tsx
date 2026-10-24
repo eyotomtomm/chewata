@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const facts = [
   { Icon: ValueIcon.people, title: "All levels welcome", body: "Whether you play for fun or to compete." },
-  { Icon: MetaIcon.calendar, title: "Weekend & evening games", body: "Games on weekends and weekday evenings." },
+  { Icon: MetaIcon.calendar, title: "Times announced soon", body: "Tell us the days that suit you. We set the schedule around the group." },
   { Icon: MetaIcon.pin, title: `Across ${site.city}`, body: "We play in quality venues across the city." },
 ];
 

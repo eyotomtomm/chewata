@@ -19,17 +19,4 @@ export const accent: Record<Sport["accent"], {
     ring: "group-hover:ring-volt/60", chip: "bg-volt/15 text-volt",
     glow: "group-hover:shadow-volt/25",
   },
-  grape: {
-    text: "text-grape", bg: "bg-grape", border: "border-grape",
-    ring: "group-hover:ring-grape/60", chip: "bg-grape/15 text-grape",
-    glow: "group-hover:shadow-grape/25",
-  },
-};
-
-/** Button colour on a game card — volt needs dark text, the rest need white. */
-export const accentButton: Record<Sport["accent"], string> = {
-  flame: "bg-flame text-white",
-  aqua: "bg-aqua text-white",
-  volt: "bg-volt text-ink",
-  grape: "bg-grape text-white",
 };

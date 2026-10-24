@@ -8,13 +8,13 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
-  description: `Chewata is an organized social sports league built to get people out, moving, meeting new people and having fun in ${site.city}.`,
+  description: `Chewata is an organized social sports community built to get people out, moving, meeting new people and having fun in ${site.city}.`,
 };
 
 const pillars = [
   { label: "Play.", color: "bg-volt text-ink", Icon: SportIcon.running },
   { label: "Meet.", color: "bg-aqua text-white", Icon: SportIcon.volleyball },
-  { label: "Connect.", color: "bg-grape text-white", Icon: SportIcon.basketball },
+  { label: "Connect.", color: "bg-sun text-ink", Icon: SportIcon.basketball },
 ];
 
 export default function AboutPage() {
@@ -30,7 +30,7 @@ export default function AboutPage() {
             Life is better<br />when we <span className="text-volt">play.</span>
           </h1>
           <p className="mt-6 max-w-md text-base leading-relaxed text-cream/75">
-            Chewata is an organized social sports league built to get people out, moving, meeting new
+            Chewata is an organized social sports community built to get people out, moving, meeting new
             people and having fun.
           </p>
           <ButtonLink href="/play" variant="volt" className="mt-8">
@@ -89,7 +89,7 @@ export default function AboutPage() {
               </h2>
             </div>
             <p className="reveal max-w-md self-end text-[0.9375rem] leading-relaxed text-ink/70">
-              Chewata is a social sports league for kids and adults. You can sign up with friends or on
+              Chewata is a social sports community for adults, with Chewata Kids coming soon. You can sign up with friends or on
               your own. We place you in a team, organize the games and create a space where everyone can
               show up, compete, laugh and belong.
             </p>

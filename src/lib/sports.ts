@@ -1,23 +1,19 @@
-export type SportId = "basketball" | "volleyball" | "football" | "padel" | "running";
+export type SportId = "basketball" | "volleyball" | "football";
 
 export type Sport = {
   id: SportId;
   name: string;
   tagline: string;
-  /** Season price in ETB. Running club is priced per season too, just cheaper. */
+  /** Season price in ETB. */
   price: number;
   /** Tailwind colour token for this sport's accent. */
-  accent: "flame" | "aqua" | "volt" | "grape";
-  /** Shown on the Play page; sports not yet running are listed but not bookable. */
-  live: boolean;
+  accent: "flame" | "aqua" | "volt";
 };
 
 export const sports: Sport[] = [
-  { id: "volleyball", name: "Volleyball", tagline: "Serve. Rally. Connect.", price: 7000, accent: "aqua", live: true },
-  { id: "basketball", name: "Basketball", tagline: "Run the court.", price: 7000, accent: "flame", live: true },
-  { id: "football", name: "7v7 Football", tagline: "Your weekly kickabout.", price: 7000, accent: "volt", live: true },
-  { id: "padel", name: "Padel", tagline: "Four walls, endless rallies.", price: 7000, accent: "grape", live: false },
-  { id: "running", name: "Running Club", tagline: "Show up. Move. Repeat.", price: 3000, accent: "aqua", live: false },
+  { id: "volleyball", name: "Volleyball", tagline: "Serve. Rally. Connect.", price: 7500, accent: "aqua" },
+  { id: "basketball", name: "Basketball", tagline: "Run the court.", price: 7500, accent: "flame" },
+  { id: "football", name: "7v7 Football", tagline: "Your weekly kickabout.", price: 7500, accent: "volt" },
 ];
 
 export const sportById = (id: string) => sports.find((s) => s.id === id);

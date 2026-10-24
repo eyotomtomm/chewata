@@ -20,13 +20,6 @@ export const SportIcon = {
       <path d="m12 8 3.6 2.6-1.4 4.3H9.8l-1.4-4.3L12 8ZM12 3v5M4.2 9.5 8.4 10.6M19.8 9.5l-4.2 1.1M6.8 18.6l3-3.7M17.2 18.6l-3-3.7" />
     </svg>
   ),
-  padel: (p: P) => (
-    <svg viewBox="0 0 24 24" className={p.className} {...s} aria-hidden="true">
-      <path d="M14.5 3c3.6 0 6 2.6 6 6s-2.6 6.4-6 6.4-6-2.8-6-6.4 2.4-6 6-6Z" />
-      <path d="M10.3 13.7 4.6 19.4M3.2 20.8l1.4-1.4" />
-      <circle cx="14.5" cy="9.2" r="1" />
-    </svg>
-  ),
   running: (p: P) => (
     <svg viewBox="0 0 24 24" className={p.className} {...s} aria-hidden="true">
       <circle cx="15" cy="4.5" r="1.8" />

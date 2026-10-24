@@ -4,16 +4,14 @@ const ph = (seed: string, w = 1200, h = 900) =>
   `https://picsum.photos/seed/${seed}/${w}/${h}`;
 
 export const photos = {
-  hero: ph("chawata-hero", 1600, 1100),
-  aboutHero: ph("chawata-about", 1600, 1000),
-  volleyball: ph("chawata-volley"),
-  basketball: ph("chawata-hoops"),
-  football: ph("chawata-football"),
-  padel: ph("chawata-padel"),
-  running: ph("chawata-run"),
+  hero: ph("chewata-hero", 1600, 1100),
+  aboutHero: ph("chewata-about", 1600, 1000),
+  volleyball: ph("chewata-volley"),
+  basketball: ph("chewata-hoops"),
+  football: ph("chewata-football"),
   community: [
-    ph("chawata-c1", 800, 900),
-    ph("chawata-c2", 800, 900),
-    ph("chawata-c3", 800, 900),
+    ph("chewata-c1", 800, 900),
+    ph("chewata-c2", 800, 900),
+    ph("chewata-c3", 800, 900),
   ],
 } as const;

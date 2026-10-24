@@ -17,7 +17,7 @@ export default function KidsPage() {
       <div className="relative mx-auto w-full max-w-7xl px-4 pb-16 pt-28 sm:px-6 lg:px-8 lg:pb-24">
         <p className="eyebrow text-volt">Coming soon</p>
         <h1 className="display mt-4 max-w-2xl text-[3rem] text-cream sm:text-6xl lg:text-7xl">
-          Chewata <span className="text-grape">Kids.</span>
+          Chewata <span className="text-sun">Kids.</span>
         </h1>
         <p className="mt-6 max-w-md text-base leading-relaxed text-cream/70">
           The same thing we built for adults, made for younger players — organized games, real coaching

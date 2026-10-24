@@ -11,12 +11,10 @@ const values = [
   { Icon: ValueIcon.people, title: "Real people", body: "Meet new people and make lasting connections.", color: "text-aqua" },
   { Icon: ValueIcon.vibes, title: "Good vibes", body: "Fun, friendly games in a positive environment.", color: "text-flame" },
   { Icon: ValueIcon.active, title: "Stay active", body: "Move your body, clear your mind.", color: "text-volt" },
-  { Icon: ValueIcon.heart, title: "More than a game", body: "Be part of a community that shows up for each other.", color: "text-grape" },
+  { Icon: ValueIcon.heart, title: "More than a game", body: "Be part of a community that shows up for each other.", color: "text-sun" },
 ];
 
 export default function HomePage() {
-  const live = sports.filter((s) => s.live);
-
   return (
     <>
       {/* Hero */}
@@ -45,7 +43,7 @@ export default function HomePage() {
           <div className="fade-up mt-8 flex flex-col gap-3 sm:flex-row" style={{ "--d": "580ms" } as CSSProperties}>
             <ButtonLink href="/join">Join Chewata</ButtonLink>
             <ButtonLink href="/play" variant="outline">
-              See this week&rsquo;s games
+              Explore sports
             </ButtonLink>
           </div>
         </div>
@@ -55,7 +53,7 @@ export default function HomePage() {
       <section className="relative -mt-2 pb-16 lg:pb-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="rail -mx-4 flex gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0">
-            {live.map((sport) => (
+            {sports.map((sport) => (
               <SportCard key={sport.id} sport={sport} />
             ))}
           </div>
@@ -106,7 +104,7 @@ export default function HomePage() {
 
 function Stats() {
   const stats = [
-    { to: 6, suffix: "", label: "Weekly games" },
+    { to: 1, suffix: "", label: "Game a week" },
     { to: 3, suffix: "", label: "Sports live now" },
     { to: 8, suffix: "", label: "Week season" },
     { to: 120, suffix: "+", label: "Players placed" },
@@ -129,7 +127,7 @@ function Stats() {
 }
 
 function Marquee() {
-  const words = ["Volleyball", "Basketball", "7v7 Football", "Padel", "Running Club", "All levels welcome"];
+  const words = ["Volleyball", "Basketball", "7v7 Football", "All levels welcome"];
   return (
     <div className="flex overflow-hidden border-b border-cream/10 bg-flame py-4 select-none">
       <div className="marquee-track flex shrink-0 gap-8 pr-8">

@@ -1,8 +1,8 @@
 export const site = {
   name: "Chewata",
-  tagline: "The Social Sports League",
+  tagline: "The Social Sports Community",
   description:
-    "Chewata is the social sports league for people who want to get out, play, meet new people and be part of something bigger. Volleyball, basketball and 7v7 football across Addis Ababa.",
+    "Chewata is the social sports community for people who want to get out, play, meet new people and be part of something bigger. Volleyball, basketball and 7v7 football across Addis Ababa.",
   url: "https://chewata.com",
   city: "Addis Ababa",
   telegram: "https://t.me/chewata",
@@ -14,6 +14,6 @@ export const site = {
 export const nav = [
   { href: "/", label: "Home" },
   { href: "/play", label: "Play" },
-  { href: "/kids", label: "Chewata Kids" },
+  { href: "/kids", label: "Kids · Soon" },
   { href: "/about", label: "About" },
 ] as const;

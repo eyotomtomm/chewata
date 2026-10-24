@@ -1,3 +1,5 @@
+import { site } from "@/lib/site";
+
 export function Logo({ className = "" }: { className?: string }) {
   return (
     <span className={`flex items-center gap-2.5 ${className}`}>
@@ -8,7 +10,7 @@ export function Logo({ className = "" }: { className?: string }) {
       </svg>
       <span className="leading-none">
         <span className="display block text-[1.15rem] text-cream">Chewata</span>
-        <span className="eyebrow block text-[0.5rem] text-cream/50">The Social Sports League</span>
+        <span className="eyebrow block text-[0.5rem] text-cream/50">{site.tagline}</span>
       </span>
     </span>
   );

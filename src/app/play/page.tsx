@@ -1,21 +1,16 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ButtonLink } from "@/components/Button";
-import { GameCard } from "@/components/GameCard";
-import { SportIcon, MetaIcon, ValueIcon } from "@/components/Icons";
-import { accent } from "@/lib/accents";
-import { games, gamesBySport } from "@/lib/games";
+import { SportCard } from "@/components/SportCard";
+import { MetaIcon, ValueIcon } from "@/components/Icons";
 import { sports } from "@/lib/sports";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Play",
-  description: `Pick your sport and find a game that fits your week. Volleyball, basketball and 7v7 football across ${site.city}.`,
+  description: `Pick your sport and register for the season. Volleyball, basketball and 7v7 football across ${site.city}.`,
 };
 
 export default function PlayPage() {
-  const live = sports.filter((s) => s.live);
-
   return (
     <>
       <section className="relative overflow-hidden border-b border-cream/10 bg-ink-800 px-4 pb-10 pt-14 text-center sm:px-6 lg:pb-14 lg:pt-20">
@@ -25,58 +20,20 @@ export default function PlayPage() {
             What do you want to play?
           </h1>
           <p className="mt-4 text-[0.9375rem] text-cream/60">
-            Pick your sport and find a game that fits your week.
+            Pick your sport and register for the season.
           </p>
-        </div>
-
-        {/* Sport jump links */}
-        <div className="rail mx-auto mt-8 -mb-2 flex max-w-4xl gap-3 overflow-x-auto px-1 pb-2 sm:justify-center">
-          {live.map((s) => {
-            const a = accent[s.accent];
-            const Icon = SportIcon[s.id];
-            return (
-              <Link
-                key={s.id}
-                href={`#${s.id}`}
-                className={`group flex shrink-0 items-center gap-2.5 rounded-full border px-5 py-3 transition-all duration-200 ease-out-quint hover:-translate-y-0.5 ${a.border} ${a.chip}`}
-              >
-                <Icon className="h-5 w-5 transition-transform duration-500 ease-out-quint group-hover:rotate-180" />
-                <span className="display text-sm">{s.name}</span>
-              </Link>
-            );
-          })}
         </div>
       </section>
 
-      {/* Games grouped by sport */}
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-20">
-        {live.map((sport) => {
-          const list = gamesBySport(sport.id);
-          const a = accent[sport.accent];
-          const Icon = SportIcon[sport.id];
-          return (
-            <section key={sport.id} id={sport.id} className="mb-14 scroll-mt-24 last:mb-0">
-              <div className="mb-6 flex items-center gap-3">
-                <Icon className={`h-7 w-7 ${a.text}`} />
-                <h2 className={`display text-2xl sm:text-3xl ${a.text}`}>{sport.name}</h2>
-                <span className="ml-auto text-xs text-cream/40">
-                  {list.length} {list.length === 1 ? "game" : "games"}
-                </span>
-              </div>
-              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {list.map((game) => (
-                  <div key={game.id} className="reveal">
-                    <GameCard game={game} />
-                  </div>
-                ))}
-              </div>
-            </section>
-          );
-        })}
-
-        {games.length === 0 && (
-          <p className="py-20 text-center text-cream/50">No games scheduled yet — check back soon.</p>
-        )}
+        <div className="rail -mx-4 flex gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0">
+          {sports.map((sport) => (
+            <SportCard key={sport.id} sport={sport} />
+          ))}
+        </div>
+        <p className="mt-8 text-center text-sm text-cream/55">
+          Game days, times and venues are announced once teams are set. Register now and we&rsquo;ll be in touch.
+        </p>
       </div>
 
       {/* Reassurance strip */}
@@ -87,7 +44,7 @@ export default function PlayPage() {
             <div>
               <h3 className="eyebrow text-cream">Seasons throughout the year</h3>
               <p className="mt-1.5 text-sm text-cream/60">
-                New games every month. Jump in whenever you&rsquo;re ready.
+                Register your interest any time and we&rsquo;ll place you in the next season.
               </p>
             </div>
           </div>
